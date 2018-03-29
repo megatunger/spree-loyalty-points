@@ -2,9 +2,9 @@ Spree.user_class.class_eval do
   validates :loyalty_points_balance, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   with_options foreign_key: :user_id do
-    has_many :loyalty_points_transactions
-    has_many :loyalty_points_debit_transactions
-    has_many :loyalty_points_credit_transactions
+    has_many :loyalty_points_transactions, class_name: Spree::LoyaltyPointsTransaction
+    has_many :loyalty_points_debit_transactions, class_name: Spree::LoyaltyPointsDebitTransaction
+    has_many :loyalty_points_credit_transactions, class_name: Spree::LoyaltyPointsCreditTransaction
   end
 
   def loyalty_points_balance_sufficient?
