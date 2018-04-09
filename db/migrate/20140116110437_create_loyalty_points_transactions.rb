@@ -1,4 +1,4 @@
-class CreateLoyaltyPointsTransactions < ActiveRecord::Migration
+class CreateLoyaltyPointsTransactions < ActiveRecord::Migration[4.2]
   def change
     create_table :spree_loyalty_points_transactions do |t|
       t.integer :loyalty_points
