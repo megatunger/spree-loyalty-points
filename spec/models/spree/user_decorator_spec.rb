@@ -13,11 +13,11 @@ describe Spree.user_class, type: :model do
   it { is_expected.to have_many :loyalty_points_debit_transactions }
 
   it "is invalid without numeric loyalty_points_balance" do
-    is_expected.to validate_numericality_of(:loyalty_points_balance).only_integer
+    is_expected.to validate_numericality_of(:energy_coins).only_integer
   end
 
   it "is invalid for negative integer loyalty_points_balance" do
-    is_expected.to validate_numericality_of(:loyalty_points_balance).is_greater_than_or_equal_to(0)
+    is_expected.to validate_numericality_of(:energy_coins).is_greater_than_or_equal_to(0)
   end
 
   describe 'loyalty_points_balance_sufficient?' do
@@ -28,7 +28,7 @@ describe Spree.user_class, type: :model do
     context "when loyalty_points_balance greater than redeeming balance" do
 
       before :each do
-        user.loyalty_points_balance = 40
+        user.energy_coins = 40
       end
 
       it "should return true" do
@@ -40,7 +40,7 @@ describe Spree.user_class, type: :model do
     context "when loyalty_points_balance equal to redeeming balance" do
 
       before :each do
-        user.loyalty_points_balance = 30
+        user.energy_coins = 30
       end
 
       it "should return true" do
@@ -52,7 +52,7 @@ describe Spree.user_class, type: :model do
     context "when loyalty_points_balance less than redeeming balance" do
 
       before :each do
-        user.loyalty_points_balance = 20
+        user.energy_coins = 20
       end
 
       it "should return false" do
@@ -65,7 +65,7 @@ describe Spree.user_class, type: :model do
 
   describe 'has_sufficient_loyalty_points?' do
     let(:order) { create(:order_with_loyalty_points) }
-    
+
     before :each do
       order.total = BigDecimal.new(30.0, 2)
     end
@@ -117,7 +117,7 @@ describe Spree.user_class, type: :model do
     end
 
     it "should return balance * conversion_rate" do
-      expect(user.loyalty_points_equivalent_currency).to eq(user.loyalty_points_balance * conversion_rate)
+      expect(user.loyalty_points_equivalent_currency).to eq(user.energy_coins * conversion_rate)
     end
 
   end

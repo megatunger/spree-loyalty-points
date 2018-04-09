@@ -10,10 +10,10 @@ describe Spree::LoyaltyPointsCreditTransaction do
 
   describe 'update_user_balance' do
 
-    it "should increment user's loyalty_points_balance" do
+    it "should increment user's energy_coins" do
       expect {
         loyalty_points_credit_transaction.send(:update_user_balance)
-      }.to change{ loyalty_points_credit_transaction.user.loyalty_points_balance }.by(loyalty_points_credit_transaction.loyalty_points)
+      }.to change{ loyalty_points_credit_transaction.user.energy_coins }.by(loyalty_points_credit_transaction.loyalty_points)
     end
 
   end
@@ -22,7 +22,7 @@ describe Spree::LoyaltyPointsCreditTransaction do
     let(:user_balance) { 300 }
 
     before :each do
-      allow(loyalty_points_credit_transaction.user).to receive(:loyalty_points_balance).and_return(user_balance)
+      allow(loyalty_points_credit_transaction.user).to receive(:energy_coins).and_return(user_balance)
       loyalty_points_credit_transaction.send(:update_balance)
     end
 

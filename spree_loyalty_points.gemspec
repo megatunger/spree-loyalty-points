@@ -17,10 +17,12 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'solidus'
+  s.add_dependency 'rabl'
   s.add_development_dependency 'capybara', '~> 2.5'
   s.add_development_dependency 'coffee-rails', '~> 4.2.1'
   s.add_development_dependency 'database_cleaner', '~> 1.5.3'
   s.add_development_dependency 'factory_girl', '~> 4.5'
+  s.add_development_dependency 'factory_bot'
   s.add_development_dependency 'ffaker', '~> 2.2.0'
   s.add_development_dependency 'rspec-rails', '~> 3.4'
   s.add_development_dependency 'rspec-activemodel-mocks'

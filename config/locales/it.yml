@@ -1,0 +1,9 @@
+it:
+  spree:
+    loyalty_points: Energy coin
+    insufficient_loyalty_points: Non hai abbastanza energy coin
+    have_been_credited_to_your_account: sono stati accreditati sul tuo conto.
+    will_be_credited_to_your_account_soon: saranno accreditati sul tuo conto presto.
+    loyalty_points_balance: Energy coin
+    loyalty_points_needed: Energy coin necessari
+    insufficient_balance: Non hai abbastanza energy coin

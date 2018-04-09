@@ -1,3 +1,5 @@
+FactoryGirl = FactoryBot
+
 FactoryGirl.define do
   # Define your Spree extensions Factories within this file to enable applications, and other extensions to use and override them.
   #
@@ -23,7 +25,7 @@ FactoryGirl.define do
   end
 
   factory :user_with_loyalty_points, parent: :user do
-    loyalty_points_balance { (100..999).to_a.sample }
+    energy_coins { (100..999).to_a.sample }
 
     transient do
       transactions_count 5
