@@ -104,9 +104,9 @@ describe Spree::PaymentMethod::LoyaltyPoints do
     end
 
     it 'should update total users loyalty points' do
-      prev_loyalty_points_balance = refund.payment.order.user.reload.loyalty_points_balance
+      prev_loyalty_points_balance = refund.payment.order.user.reload.energy_coins
       loyalty_points_payment_method.credit(1, 'transaction_id', { originator: refund })
-      expect(refund.payment.order.user.reload.loyalty_points_balance).to eq prev_loyalty_points_balance + refund.reimbursement.return_items.last.return_authorization.loyalty_points
+      expect(refund.payment.order.user.reload.energy_coins).to eq prev_loyalty_points_balance + refund.reimbursement.return_items.last.return_authorization.loyalty_points
     end
 
     it 'should record the transaction in Spree::LoyaltyPointsTransaction' do

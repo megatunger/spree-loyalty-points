@@ -3,17 +3,22 @@
 
 en:
   spree:
-    loyalty_points_balance: Loyalty Points Balance
-    loyalty_points: Loyalty Points
-    loyalty_points_debit: Loyalty Points To Be Deducted Against this Return
-    loyalty_points_credit: Loyalty Points To Be Awarded Against this Return
+    loyalty_points_balance: Energy coins Balance
+    loyalty_points: Energy coins
+    loyalty_points_debit: Energy coins To Be Deducted Against this Return
+    loyalty_points_credit: Energy coins To Be Awarded Against this Return
     details: Details
-    min_amount_required_to_get_loyalty_points: "Minimum amount to be spent per order(item total, excluding shipping and any other charges) to award loyalty points."
-    loyalty_points_awarding_unit: "Number of Loyalty Points to be awarded per Unit Amount Spent"
-    loyalty_points_redeeming_balance: Minimum Loyalty Points Balance Required for Redeeming
-    loyalty_points_conversion_rate: "Loyalty point to amount conversion rate"
-    loyalty_points_award_period: Time(in hours) after payment to award loyalty points
+    min_amount_required_to_get_loyalty_points: "Minimum amount to be spent per order(item total, excluding shipping and any other charges) to award energy coins."
+    loyalty_points_awarding_unit: "Number of Energy coins to be awarded per Unit Amount Spent"
+    loyalty_points_redeeming_balance: Minimum energy coins Balance Required for Redeeming
+    loyalty_points_conversion_rate: "Energy coin to amount conversion rate"
+    loyalty_points_award_period: Time(in hours) after payment to award energy coins
     back_to_user_profile: Back to User Profile
-    update_loyalty_points: Update Loyalty Points
-    loyalty_points_earnable: "%{quantity} Loyalty Points Will Be Awarded for this Order"
-    insufficient_loyalty_points: 'You have insufficient Loyalty Points'
+    update_loyalty_points: Update Energy coins
+    loyalty_points_earnable: "%{quantity} Energy coins Will Be Awarded for this Order"
+    insufficient_loyalty_points: "You have insufficient Energy coins"
+    have_been_credited_to_your_account: "have been credited to your account."
+    will_be_credited_to_your_account_soon: "will be credited to your account soon."
+    current_balance: "Current balance"
+  spree_loyalty_points:
+    insufficient_balance: Insufficient Balance!

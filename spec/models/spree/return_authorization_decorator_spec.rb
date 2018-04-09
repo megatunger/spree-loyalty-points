@@ -27,11 +27,11 @@ describe Spree::ReturnAuthorization do
       end
 
       context "when user's balance is lowest" do
-        let!(:debit_points) { return_authorization.order.user.loyalty_points_balance }
+        let!(:debit_points) { return_authorization.order.user.energy_coins }
 
         before :each do
-          allow(return_authorization.order).to receive(:loyalty_points_for).with(return_authorization.order.item_total).and_return(return_authorization.order.user.loyalty_points_balance + 10)
-          allow(return_authorization).to receive(:loyalty_points).and_return(return_authorization.order.user.loyalty_points_balance + 20)
+          allow(return_authorization.order).to receive(:loyalty_points_for).with(return_authorization.order.item_total).and_return(return_authorization.order.user.energy_coins + 10)
+          allow(return_authorization).to receive(:loyalty_points).and_return(return_authorization.order.user.energy_coins + 20)
         end
 
         context "should receive create_debit_transaction with user's balance" do
@@ -46,7 +46,7 @@ describe Spree::ReturnAuthorization do
         let!(:debit_points) { return_authorization.order.loyalty_points_for(return_authorization.order.item_total) }
 
         before :each do
-          allow(return_authorization.order.user).to receive(:loyalty_points_balance).and_return(debit_points + 10)
+          allow(return_authorization.order.user).to receive(:energy_coins).and_return(debit_points + 10)
           allow(return_authorization).to receive(:loyalty_points).and_return(debit_points + 20)
         end
 
@@ -62,7 +62,7 @@ describe Spree::ReturnAuthorization do
 
         before :each do
           allow(return_authorization.order).to receive(:loyalty_points_for).with(return_authorization.order.item_total).and_return(debit_points + 10)
-          allow(return_authorization.order.user).to receive(:loyalty_points_balance).and_return(debit_points + 20)
+          allow(return_authorization.order.user).to receive(:energy_coins).and_return(debit_points + 20)
         end
 
         context "should receive create_debit_transaction with return_authorization's loyalty_points" do

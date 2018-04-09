@@ -6,10 +6,10 @@ Deface::Override.new(virtual_path: 'spree/shared/_order_details',
       <tr id='loyalty-points-row'>
         <% if @order.loyalty_points_awarded? %>
           <td></td>
-          <td colspan='4' class='total'><span><%= @order.loyalty_points_for(@order.item_total) %></span> <b><%= I18n.t('spree.loyalty_points') %> have been credited to your account.</b></td>
+          <td colspan='4' class='total'><span><%= @order.loyalty_points_for(@order.item_total) %></span> <b><%= I18n.t('spree.loyalty_points') %> <%= I18n.t('spree_loyalty_points.have_been_credited_to_your_account') %></b></td>
         <% else %>
           <td></td>
-          <td colspan='4' class='total'><span><%= @order.loyalty_points_for(@order.item_total) %></span> <b><%= I18n.t('spree.loyalty_points') %> will be credited to your account soon.</b></td>
+          <td colspan='4' class='total'><span><%= @order.loyalty_points_for(@order.item_total) %></span> <b><%= I18n.t('spree.loyalty_points') %> <%= I18n.t('spree_loyalty_points.will_be_credited_to_your_account_soon') %></b></td>
         <% end %>
       </tr>
     </tfoot>

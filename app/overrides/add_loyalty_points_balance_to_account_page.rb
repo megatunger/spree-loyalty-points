@@ -4,6 +4,6 @@ Deface::Override.new(virtual_path: 'spree/users/show',
   text: "
     <dl id='loyalty-points-info'>
       <dt><%= I18n.t('spree.loyalty_points_balance') %></dt>
-      <dd><%= @user.loyalty_points_balance %> (<%= link_to I18n.t('spree.details'), spree.loyalty_points_path %>)</dd>
+      <dd><%= @user.energy_coins %> (<%= link_to I18n.t('spree.details'), spree.loyalty_points_path %>)</dd>
     </dl>
   ")

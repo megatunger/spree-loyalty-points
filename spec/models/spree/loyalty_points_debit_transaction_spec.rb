@@ -10,10 +10,10 @@ describe Spree::LoyaltyPointsDebitTransaction do
 
   describe 'update_user_balance' do
 
-    it "should decrement user's loyalty_points_balance" do
+    it "should decrement user's energy_coins" do
       expect {
         loyalty_points_debit_transaction.send(:update_user_balance)
-      }.to change{ loyalty_points_debit_transaction.user.loyalty_points_balance }.by(-loyalty_points_debit_transaction.loyalty_points)
+      }.to change{ loyalty_points_debit_transaction.user.energy_coins }.by(-loyalty_points_debit_transaction.loyalty_points)
     end
 
   end
@@ -22,7 +22,7 @@ describe Spree::LoyaltyPointsDebitTransaction do
     let(:user_balance) { 300 }
 
     before :each do
-      allow(loyalty_points_debit_transaction.user).to receive(:loyalty_points_balance).and_return(user_balance)
+      allow(loyalty_points_debit_transaction.user).to receive(:energy_coins).and_return(user_balance)
       loyalty_points_debit_transaction.send(:update_balance)
     end
 

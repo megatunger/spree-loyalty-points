@@ -1,0 +1,24 @@
+it:
+  spree:
+    loyalty_points_balance: Energy coin
+    loyalty_points: Energy coin
+    loyalty_points_debit: Energy coins da dedurre
+    loyalty_points_credit: Energy coins da accreditare
+    details: Dettagli
+    min_amount_required_to_get_loyalty_points: "Importo minimo da spendere per ordine (totale articolo, escluse spese di spedizione e altri oneri) per l'assegnazione di energy coin."
+    loyalty_points_awarding_unit: "Numero di energy coin da assegnare per l'importo unitario consumato"
+    loyalty_points_redeeming_balance: Energy coin minimi richiesto per Redimere
+    loyalty_points_conversion_rate: "Energy coin per l'ammontare del tasso di conversione"
+    loyalty_points_award_period: "Tempo (in ore) dopo il pagamento per l'assegnazione di energy coin"
+    back_to_user_profile: "Torna al Profilo"
+    update_loyalty_points: "Aggiorna energy coins"
+    loyalty_points_earnable: "%{quantity} Energy coin saranno assegnate per questo ordine"
+    insufficient_loyalty_points: "Non hai abbastanza energy coin"
+    have_been_credited_to_your_account: sono stati accreditati sul tuo conto.
+    will_be_credited_to_your_account_soon: saranno accreditati sul tuo conto presto.
+    loyalty_points_balance: Energy coin
+    loyalty_points_needed: Energy coin necessari
+    insufficient_balance: Non hai abbastanza energy coin
+    current_balance: "Saldo attuale"
+  spree_loyalty_points:
+    insufficient_balance: "Non hai abbastanza energy coin"

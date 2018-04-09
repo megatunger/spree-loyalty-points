@@ -129,7 +129,7 @@ describe Spree::Admin::LoyaltyPointsTransactionsController, type: :controller do
     end
 
     it "should redirect to user's loyalty points page" do
-      get :index, user_id: "1"
+      get :index, params: { user_id: "1" }
       expect(response).to redirect_to(admin_users_path)
     end
 
@@ -251,7 +251,7 @@ describe Spree::Admin::LoyaltyPointsTransactionsController, type: :controller do
       end
 
       it "should redirect_to admin_users_path" do
-        expect(response).to_not redirect_to(admin_users_path)        
+        expect(response).to_not redirect_to(admin_users_path)
       end
 
       it "assigns @loyalty_points_transactions" do

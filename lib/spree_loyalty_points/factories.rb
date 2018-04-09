@@ -23,7 +23,7 @@ FactoryBot.define do
   end
 
   factory :user_with_loyalty_points, parent: :user do
-    loyalty_points_balance { (100..999).to_a.sample }
+    energy_coins { (100..999).to_a.sample }
 
     transient do
       transactions_count 5
