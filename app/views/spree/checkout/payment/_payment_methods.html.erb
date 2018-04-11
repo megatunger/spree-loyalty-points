@@ -1,0 +1,9 @@
+<ul id="payment-methods" data-hook>
+  <% @order.available_payment_methods_for_user(spree_current_user).each do |method| %>
+    <li id="payment_method_<%= method.id %>" class="<%= 'last' if method == @order.available_payment_methods.last %>" data-hook>
+      <fieldset>
+        <%= render partial: "spree/checkout/payment/#{method.partial_name}", locals: { payment_method: method } %>
+      </fieldset>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,10 @@
+<div id="payment-method-fields" data-hook>
+  <% @order.available_payment_methods_for_user(spree_current_user).each do |method| %>
+  <p>
+    <label>
+      <%= radio_button_tag "order[payments_attributes][][payment_method_id]", method.id, method == @order.available_payment_methods.first %>
+      <%= t(method.name, scope: 'spree.payment_methods', default: method.name) %>
+    </label>
+  </p>
+  <% end %>
+</div>

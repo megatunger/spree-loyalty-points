@@ -15,4 +15,16 @@ Spree::Order.class_eval do
   fsm = self.state_machines[:state]
   fsm.after_transition from: fsm.states.map(&:name) - [:complete], to: [:complete], do: :complete_loyalty_points_payments
 
+  # allows to filter out payment methods that don't work for guest checkout,
+  # for example loyalty points.
+  # The filtering works for payment methods that have guest_checkout: false
+  # in their preferences attributes (you need to create them like that)
+  def available_payment_methods_for_user(user)
+    default_methods = available_payment_methods
+    if user.present?
+      default_methods
+    else
+      default_methods.select { |m| m.preferences.fetch(:guest_checkout, true) }
+    end
+  end
 end
