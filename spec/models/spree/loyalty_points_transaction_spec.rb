@@ -13,8 +13,8 @@ describe Spree::LoyaltyPointsTransaction, type: :model do
     end
 
     it "is invalid without numeric loyalty_points" do
-      is_expected.to validate_numericality_of(:loyalty_points).only_integer.with_message(Spree.t('validation.must_be_int'))
-      is_expected.to validate_numericality_of(:loyalty_points).is_greater_than(0).with_message(Spree.t('validation.must_be_int'))
+      is_expected.to validate_numericality_of(:loyalty_points).only_integer.with_message(I18n.t('spree.validation.must_be_int'))
+      is_expected.to validate_numericality_of(:loyalty_points).is_greater_than(0).with_message(I18n.t('spree.validation.must_be_int'))
     end
 
     it "is invalid without balance" do
@@ -151,8 +151,8 @@ end
 
 
   describe 'transaction_type' do
-    let(:loyalty_points_debit_transaction) { FactoryGirl.build(:loyalty_points_debit_transaction) }
-    let(:loyalty_points_credit_transaction) { FactoryGirl.build(:loyalty_points_credit_transaction) }
+    let(:loyalty_points_debit_transaction) { FactoryBot.build(:loyalty_points_debit_transaction) }
+    let(:loyalty_points_credit_transaction) { FactoryBot.build(:loyalty_points_credit_transaction) }
 
     context "when type is Spree::LoyaltyPointsCreditTransaction" do
 

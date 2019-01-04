@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Spree.user_class, type: :model do
 
-  let(:user) { FactoryGirl.build(:user_with_loyalty_points) }
+  let(:user) { FactoryBot.build(:user_with_loyalty_points) }
 
   it "is valid with valid attributes" do
     expect(user).to be_valid

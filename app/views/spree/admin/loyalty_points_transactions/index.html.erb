@@ -1,10 +1,10 @@
 <% content_for :page_title do %>
-  <%= Spree.t(:loyalty_points) %>
+  <%= I18n.t('spree.loyalty_points') %>
 <% end %>
 
 <% content_for :page_actions do %>
-    <%= button_link_to Spree.t(:back_to_user_profile), :back, icon: 'chevron-left', class: 'btn-primary', id: 'admin_user_link' %>
-    <%= button_link_to Spree.t(:update_loyalty_points), spree.new_admin_user_loyalty_point_path(@user), icon: 'plus', class: 'btn-primary', id: 'admin_user_new_loyalty_point_link' %>
+    <%= button_link_to I18n.t('spree.back_to_user_profile'), :back, icon: 'chevron-left', class: 'btn-primary', id: 'admin_user_link' %>
+    <%= button_link_to I18n.t('spree.update_loyalty_points'), spree.new_admin_user_loyalty_point_path(@user), icon: 'plus', class: 'btn-primary', id: 'admin_user_new_loyalty_point_link' %>
 <% end %>
 
 <p>Current Balance: <%= @user.loyalty_points_balance %></p>

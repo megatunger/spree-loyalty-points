@@ -2,7 +2,7 @@ Deface::Override.new(virtual_path: 'spree/admin/return_authorizations/index',
   name: 'add_loyalty_points_to_return_authorization_index_page_head',
   insert_after: "thead[data-hook='rma_header'] th:contains('amount')",
   text: "
-    <th><%= Spree.t(:loyalty_points) %></th>
+    <th><%= I18n.t('spree.loyalty_points') %></th>
   ")
 
 Deface::Override.new(virtual_path: 'spree/admin/return_authorizations/index',

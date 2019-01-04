@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   # Define your Spree extensions Factories within this file to enable applications, and other extensions to use and override them.
   #
   # Example adding this to your spec_helper will load these Factories for use:
@@ -74,7 +74,7 @@ FactoryGirl.define do
 
 end
 
-FactoryGirl.modify do
+FactoryBot.modify do
 
   factory :return_authorization, class: Spree::ReturnAuthorization do
     loyalty_points { (50..99).to_a.sample }

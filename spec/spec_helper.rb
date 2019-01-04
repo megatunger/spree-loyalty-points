@@ -36,7 +36,7 @@ require 'spree/testing_support/url_helpers'
 require 'spree_loyalty_points/factories'
 
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
 
   # == URL Helpers
   #
