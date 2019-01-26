@@ -22,3 +22,13 @@ it:
     current_balance: "Saldo attuale"
   spree_loyalty_points:
     insufficient_balance: "Non hai abbastanza energy coin"
+
+  activerecord:
+    errors:
+      models:
+        spree/payment:
+          attributes:
+            base:
+              no_guest_checkout_with_loyalty_points: Il pagamento con Energy coin non è possibile col guest checkout
+              not_enough_loyalty_points: E' necessario che l'utente abbia almeno %{min_required} Energy coin per poterli spedere
+

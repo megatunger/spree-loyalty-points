@@ -37,9 +37,11 @@ module Spree
         end
 
         def redeemable_user_balance
-          unless redeemable_loyalty_points_balance?
+          if order.user.nil?
+            errors.add :base, :no_guest_checkout_with_loyalty_points
+          elsif !redeemable_loyalty_points_balance?
             min_balance = Spree::Config.loyalty_points_redeeming_balance
-            errors.add :loyalty_points_balance, "should be atleast #{ min_balance.to_s + " " + "point".pluralize(min_balance) } for redeeming Energy coins"
+            errors.add :base, :not_enough_loyalty_points , min_required: min_balance
           end
         end
 

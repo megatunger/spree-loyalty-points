@@ -22,3 +22,5 @@ en:
     current_balance: "Current balance"
   spree_loyalty_points:
     insufficient_balance: Insufficient Balance!
+    no_guest_checkout_with_loyalty_points: "Guest checkout is not allowed to pay with loyalty points"
+    not_enough_loyalty_points: "should be at least %{min_required} points for redeeming Energy coins"
