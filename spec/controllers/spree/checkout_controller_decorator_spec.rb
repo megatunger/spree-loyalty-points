@@ -55,7 +55,7 @@ describe Spree::CheckoutController, type: :controller do
 
           it "should add error to flash" do
             send_request
-            expect(flash[:error]).to eq(Spree.t(:insufficient_loyalty_points))
+            expect(flash[:error]).to eq(I18n.t('spree.insufficient_loyalty_points'))
           end
 
           it "should redirect to payments page" do

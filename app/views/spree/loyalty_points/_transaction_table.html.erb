@@ -4,13 +4,13 @@
   <table class="loyalty-points-summary table table-striped table-hover">
     <thead class="thead-inverse">
     <tr>
-      <th class="loyalty-points-date"><%= Spree.t(:date) %></th>
-      <th class="loyalty-points-source"><%= Spree.t(:source) %></th>
-      <th class="loyalty-points-source-id"><%= Spree.t(:source_reference) %></th>
-      <th class="loyalty-points-comment"><%= Spree.t(:comment) %></th>
-      <th class="loyalty-points-type"><%= Spree.t(:transaction_type) %></th>
-      <th class="loyalty-points"><%= Spree.t(:loyalty_points) %></th>
-      <th class="loyalty-points-balance"><%= Spree.t(:updated_balance) %></th>
+      <th class="loyalty-points-date"><%= I18n.t('spree.date') %></th>
+      <th class="loyalty-points-source"><%= I18n.t('spree.source') %></th>
+      <th class="loyalty-points-source-id"><%= I18n.t('spree.source_reference') %></th>
+      <th class="loyalty-points-comment"><%= I18n.t('spree.comment') %></th>
+      <th class="loyalty-points-type"><%= I18n.t('spree.transaction_type') %></th>
+      <th class="loyalty-points"><%= I18n.t('spree.loyalty_points') %></th>
+      <th class="loyalty-points-balance"><%= I18n.t('spree.updated_balance') %></th>
     </tr>
     </thead>
     <tbody>
@@ -38,7 +38,7 @@
     </tbody>
   </table>
 <% else %>
-  <p><%= Spree.t(:you_have_not_earned_any_loyalty_points_yet) %></p>
+  <p><%= I18n.t('spree.you_have_not_earned_any_loyalty_points_yet') %></p>
 <% end %>
 
 <%= paginate @loyalty_points_transactions %>

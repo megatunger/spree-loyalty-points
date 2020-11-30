@@ -4,7 +4,7 @@ Deface::Override.new(virtual_path: 'spree/admin/return_authorizations/_form',
   text: "
   <% if !@order.loyalty_points_used? && @order.eligible_for_loyalty_points?(@order.item_total) %>
     <%= f.field_container :loyalty_points do %>
-      <%= label :loyalty_points, Spree.t(:loyalty_points_debit) %> <span class='required'>*</span><br />
+      <%= label :loyalty_points, I18n.t('spree.loyalty_points_debit') %> <span class='required'>*</span><br />
       <% if @return_authorization.received? %>
         <%= @return_authorization.loyalty_points %> points Debited <br />
       <% else %>
@@ -15,7 +15,7 @@ Deface::Override.new(virtual_path: 'spree/admin/return_authorizations/_form',
     <% end %>
   <% elsif @order.loyalty_points_used? %>
     <%= f.field_container :loyalty_points do %>
-      <br /><%= label :loyalty_points, Spree.t(:loyalty_points_credit) %> <span class='required'>*</span><br />
+      <br /><%= label :loyalty_points, I18n.t('spree.loyalty_points_credit') %> <span class='required'>*</span><br />
       <% if @return_authorization.received? %>
         <%= @return_authorization.loyalty_points %> points Credited <br />
       <% else %>

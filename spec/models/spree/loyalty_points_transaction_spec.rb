@@ -13,8 +13,8 @@ describe Spree::LoyaltyPointsTransaction, type: :model do
     end
 
     it "is invalid without numeric loyalty_points" do
-      is_expected.to validate_numericality_of(:loyalty_points).only_integer.with_message(Spree.t('validation.must_be_int'))
-      is_expected.to validate_numericality_of(:loyalty_points).is_greater_than(0).with_message(Spree.t('validation.must_be_int'))
+      is_expected.to validate_numericality_of(:loyalty_points).only_integer.with_message(I18n.t('spree.validation.must_be_int'))
+      is_expected.to validate_numericality_of(:loyalty_points).is_greater_than(0).with_message(I18n.t('spree.validation.must_be_int'))
     end
 
     it "is invalid without balance" do
