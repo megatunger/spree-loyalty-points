@@ -121,7 +121,6 @@ Gem::Specification.new do |s|
 
   if s.respond_to? :add_runtime_dependency then
     s.add_runtime_dependency(%q<solidus>.freeze, [">= 0"])
-    s.add_runtime_dependency(%q<rabl>.freeze, [">= 0"])
     s.add_development_dependency(%q<capybara>.freeze, ["~> 2.5"])
     s.add_development_dependency(%q<coffee-rails>.freeze, ["~> 4.2.1"])
     s.add_development_dependency(%q<database_cleaner>.freeze, ["~> 1.5.3"])
