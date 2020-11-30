@@ -28,13 +28,13 @@ $(document).ready(function() {
 
         $.each(responseData, function(index, transaction) {
             var $transactionRow = this.appendTableRow($tableBody);
-            transaction_date = new Date(transaction['updated_at']).toLocaleString();
+            transaction_date = new Date(transaction['spree_loyalty_points_transaction']['updated_at']).toLocaleString();
             this.appendTableRowData(transaction_date, $transactionRow);
-            this.appendSourceReference(transaction['source_type'], transaction['source']['number'], $transactionRow);
-            this.appendTableRowData(transaction['comment'], $transactionRow);
-            this.appendTableRowData(transaction['transaction_type'], $transactionRow);
-            this.appendTableRowData(transaction['loyalty_points'], $transactionRow);
-            this.appendTableRowData(transaction['balance'], $transactionRow);
+            this.appendSourceReference(transaction['spree_loyalty_points_transaction']['source_type'], transaction['spree_loyalty_points_transaction']['source']['number'], $transactionRow);
+            this.appendTableRowData(transaction['spree_loyalty_points_transaction']['comment'], $transactionRow);
+            this.appendTableRowData(transaction['spree_loyalty_points_transaction']['transaction_type'], $transactionRow);
+            this.appendTableRowData(transaction['spree_loyalty_points_transaction']['loyalty_points'], $transactionRow);
+            this.appendTableRowData(transaction['spree_loyalty_points_transaction']['balance'], $transactionRow);
         }.bind(this));
     }
     orderSelection.appendTable = function(container) {
@@ -61,9 +61,6 @@ $(document).ready(function() {
         return $('<tr></tr>').appendTo(container);
     }
     orderSelection.appendTableRowData = function(content, container) {
-        if (!content) {
-          content = "";
-        }
         return $('<td>' + content + '</td>').appendTo(container);
     }
     orderSelection.appendHeadData = function(content, container) {
