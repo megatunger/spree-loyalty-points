@@ -1,6 +1,10 @@
-module Spree::CheckoutControllerDecorator
-  Spree::CheckoutController.class_eval do
-    before_action :sufficient_loyalty_points, only: [:update], if: -> { params[:state] == 'payment' }
+# frozen_string_literal: true
+
+module Spree
+  module CheckoutControllerDecorator
+    def self.prepended(base)
+      base.before_action :sufficient_loyalty_points, only: [:update], if: -> { params[:state] == 'payment' }
+    end
 
     private
 
@@ -14,5 +18,7 @@ module Spree::CheckoutControllerDecorator
         redirect_to spree.checkout_state_path(@order.state)
       end
     end
+
+    ::Spree::CheckoutController.prepend self
   end
 end

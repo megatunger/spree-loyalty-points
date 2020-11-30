@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spree
   module Admin
     class LoyaltyPointsTransactionsController < ResourceController
@@ -30,41 +32,42 @@ module Spree
 
       protected
 
-        def set_user
-          unless @user = Spree.user_class.find_by(id: params[:user_id])
-            redirect_to spree.admin_users_path, notice: flash_message_for(Spree.user_class.new, :not_found)
-          end
+      def set_user
+        unless @user = Spree.user_class.find_by(id: params[:user_id])
+          redirect_to spree.admin_users_path, notice: flash_message_for(Spree.user_class.new, :not_found)
         end
+      end
 
-        def loyalty_points_transaction_params
-          params.require(:loyalty_points_transaction).permit(:loyalty_points, :type, :comment, :source_id, :source_type)
-        end
+      def loyalty_points_transaction_params
+        params.require(:loyalty_points_transaction).permit(:loyalty_points, :type, :comment, :source_id, :source_type)
+      end
 
-        def build_resource
-          if params[:loyalty_points_transaction].present? && params[:loyalty_points_transaction][:type].present?
-            parent.send(association_name(params[:loyalty_points_transaction][:type])).build
-          else
-            parent.send(controller_name).build
-          end
+      def build_resource
+        if params[:loyalty_points_transaction].present? && params[:loyalty_points_transaction][:type].present?
+          parent.send(association_name(params[:loyalty_points_transaction][:type])).build
+        else
+          parent.send(controller_name).build
         end
+      end
 
-        def association_name(klass)
-          klass.gsub('Spree::', '').pluralize.underscore
-        end
+      def association_name(klass)
+        klass.gsub('Spree::', '').pluralize.underscore
+      end
 
-        def collection_url
-          if (parent_data.present? && @parent.nil?) || parent_data.blank?
-            spree.admin_users_url
-          else
-            spree.admin_user_loyalty_points_url(parent)
-          end
+      def collection_url
+        if (parent_data.present? && @parent.nil?) || parent_data.blank?
+          spree.admin_users_url
+        else
+          spree.admin_user_loyalty_points_url(parent)
         end
+      end
 
-        def set_ordered_transactions
-          @loyalty_points_transactions = @loyalty_points_transactions.order(updated_at: :desc).
-                                           page(params[:page]).
-                                           per(params[:per_page] || Spree::Config[:admin_orders_per_page])
-        end
+      def set_ordered_transactions
+        @loyalty_points_transactions = @loyalty_points_transactions.order(updated_at: :desc).
+                                       page(params[:page]).
+                                       per(params[:per_page] || Spree::Config[:admin_orders_per_page])
+      end
     end
   end
 end
+

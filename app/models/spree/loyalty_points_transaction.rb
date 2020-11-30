@@ -1,8 +1,12 @@
+# frozen_string_literal: true
+
 module Spree
-  class LoyaltyPointsTransaction < ActiveRecord::Base
+  class LoyaltyPointsTransaction < ApplicationRecord
     include Spree::TransactionsTotalValidation
-    TRANSACTION_TYPES = ['Spree::LoyaltyPointsCreditTransaction', 'Spree::LoyaltyPointsDebitTransaction']
-    CLASS_TO_TRANSACTION_TYPE = { 'Spree::LoyaltyPointsCreditTransaction' => 'Credit', 'Spree::LoyaltyPointsDebitTransaction' => 'Debit'}
+
+    TRANSACTION_TYPES = ['Spree::LoyaltyPointsCreditTransaction', 'Spree::LoyaltyPointsDebitTransaction'].freeze
+    CLASS_TO_TRANSACTION_TYPE = { 'Spree::LoyaltyPointsCreditTransaction' => 'Credit', 'Spree::LoyaltyPointsDebitTransaction' => 'Debit' }.freeze
+
     belongs_to :user, class_name: Spree.user_class.to_s
     belongs_to :source, polymorphic: true
 
@@ -22,21 +26,20 @@ module Spree
 
     private
 
-      def source_or_comment_present
-        unless source.present? || comment.present?
-          errors.add :base, 'Source or Comment should be present'
-        end
+    def source_or_comment_present
+      unless source.present? || comment.present?
+        errors.add :base, 'Source or Comment should be present'
       end
+    end
 
-      def generate_transaction_id
-        begin
-          self.transaction_id = (Time.current.strftime("%s") + rand(999999).to_s).to(15)
-        end while Spree::LoyaltyPointsTransaction.where(transaction_id: transaction_id).present?
-      end
+    def generate_transaction_id
+      begin
+        self.transaction_id = (Time.current.strftime("%s") + rand(999_999).to_s).to(15)
+      end while Spree::LoyaltyPointsTransaction.where(transaction_id: transaction_id).present?
+    end
 
-      def transactions_total_range
-        validate_transactions_total_range(transaction_type, source)
-      end
-
+    def transactions_total_range
+      validate_transactions_total_range(transaction_type, source)
+    end
   end
 end

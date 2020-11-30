@@ -37,7 +37,6 @@ RenameFieldsInSpreeLoyaltyPointsTransaction	db/migrate/20140130131957_rename_fie
 SelectOptionChange	app/assets/javascripts/spree/backend/spree_loyalty_points.js	/^function SelectOptionChange(selectBoxId, containerId, heading) {$/;"	c
 Spree	app/controllers/spree/admin/general_settings_controller_decorator.rb	/^module Spree::Admin::GeneralSettingsControllerDecorator$/;"	m
 Spree	app/controllers/spree/admin/loyalty_points_transactions_controller.rb	/^module Spree$/;"	m
-Spree	app/controllers/spree/admin/resource_controller_decorator.rb	/^module Spree::Admin::ResourceControllerDecorator$/;"	m
 Spree	app/controllers/spree/admin/return_authorizations_controller_decorator.rb	/^module Spree::Admin::ReturnAuthorizationsControllerDecorator$/;"	m
 Spree	app/controllers/spree/checkout_controller_decorator.rb	/^module Spree::CheckoutControllerDecorator$/;"	m
 Spree	app/controllers/spree/loyalty_points_controller.rb	/^module Spree$/;"	m
@@ -111,12 +110,10 @@ loyalty_points_used?	app/models/concerns/spree/order/loyalty_points.rb	/^      d
 net_transactions_sum	app/models/concerns/spree/transactions_total_validation.rb	/^      def net_transactions_sum(trans_type, relation)$/;"	f	class:Spree.TransactionsTotalValidation
 notify_paid_order	app/models/spree/payment_decorator.rb	/^      def notify_paid_order$/;"	f	class:Spree
 order_transactions	app/controllers/spree/admin/loyalty_points_transactions_controller.rb	/^      def order_transactions$/;"	f	class:Spree.Admin.LoyaltyPointsTransactionsController
-parent	app/controllers/spree/admin/resource_controller_decorator.rb	/^      def parent$/;"	f	class:Spree
 prepended	app/models/spree/app_configuration_decorator.rb	/^  def self.prepended(base)$/;"	F	class:Spree
 redeem_loyalty_points	app/models/concerns/spree/payment/loyalty_points.rb	/^        def redeem_loyalty_points$/;"	f	class:Spree.Payment.LoyaltyPoints
 redeemable_loyalty_points_balance?	app/models/concerns/spree/payment/loyalty_points.rb	/^        def redeemable_loyalty_points_balance?$/;"	f	class:Spree.Payment.LoyaltyPoints
 redeemable_user_balance	app/models/concerns/spree/payment/loyalty_points.rb	/^        def redeemable_user_balance$/;"	f	class:Spree.Payment.LoyaltyPoints
-resource_not_found	app/controllers/spree/admin/resource_controller_decorator.rb	/^      def resource_not_found$/;"	f	class:Spree
 return_loyalty_points	app/models/concerns/spree/payment/loyalty_points.rb	/^        def return_loyalty_points$/;"	f	class:Spree.Payment.LoyaltyPoints
 run_migrations	lib/generators/spree_loyalty_points/install/install_generator.rb	/^      def run_migrations$/;"	f	class:SpreeLoyaltyPoints.Generators.InstallGenerator
 save_record	spec/models/spree/loyalty_points_transaction_spec.rb	/^    def save_record$/;"	f

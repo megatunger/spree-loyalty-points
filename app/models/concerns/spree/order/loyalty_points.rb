@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support/concern'
 
 module Spree
@@ -11,6 +13,7 @@ module Spree
 
       def award_loyalty_points
         loyalty_points_earned = loyalty_points_for(item_total)
+
         if !loyalty_points_used?
           create_credit_transaction(loyalty_points_earned)
         end
@@ -25,7 +28,6 @@ module Spree
       end
 
       module ClassMethods
-
         def credit_loyalty_points_to_user
           points_award_period = Spree::Config.loyalty_points_award_period
           uncredited_orders = Spree::Order.with_uncredited_loyalty_points(points_award_period)
@@ -33,7 +35,6 @@ module Spree
             order.award_loyalty_points
           end
         end
-
       end
 
       def create_credit_transaction(points)
@@ -46,10 +47,9 @@ module Spree
 
       private
 
-        def complete_loyalty_points_payments
-          payments.by_loyalty_points.with_state('checkout').each { |payment| payment.complete! }
-        end
-
+      def complete_loyalty_points_payments
+        payments.by_loyalty_points.with_state('checkout').each { |payment| payment.complete! }
+      end
     end
   end
 end
