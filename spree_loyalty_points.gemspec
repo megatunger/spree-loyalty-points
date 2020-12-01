@@ -17,9 +17,14 @@ Gem::Specification.new do |s|
   s.test_files = Dir['spec/**/*']
   s.bindir = "exe"
   s.executables = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  s.homepage = "http://vinsol.com"
+  s.homepage = "https://github.com/taminhtien/spree-loyalty-points"
   s.licenses = ["MIT"]
   s.summary = "Add loyalty points to spree"
+
+  if s.respond_to?(:metadata)
+    s.metadata["homepage_uri"] = s.homepage if s.homepage
+    s.metadata["source_code_uri"] = s.homepage if s.homepage
+  end
 
   solidus_version = [">= 1.0", "< 3"]
 
