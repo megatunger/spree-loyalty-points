@@ -117,7 +117,7 @@ describe Spree::Admin::LoyaltyPointsTransactionsController, type: :controller do
     end
 
     it "redirects to user's loyalty points page" do
-      get :index, user_id: "1"
+      get :index, params: { user_id: "1" }
       expect(response).to redirect_to(admin_users_path)
     end
   end
@@ -200,7 +200,7 @@ describe Spree::Admin::LoyaltyPointsTransactionsController, type: :controller do
   describe "GET 'order_transactions'" do
     render_views
     def send_request(params = {})
-      spree_get :order_transactions, params.merge!(loyalty_points_transaction: attributes_for(:loyalty_points_transaction), order_id: order.id, user_id: "1")
+      get :order_transactions, params: params.merge!(loyalty_points_transaction: attributes_for(:loyalty_points_transaction), order_id: order.id, user_id: "1")
     end
 
     before do

@@ -3,7 +3,7 @@
 module SpreeLoyaltyPoints
   module Spree
     module Admin
-      module ReturnAuthorizationsControllerDecorator
+      module ReturnAuthorizationControllerDecorator
         def self.prepended(base)
           base.before_action :set_loyalty_points_transactions, only: [:new, :edit, :create, :update]
         end
