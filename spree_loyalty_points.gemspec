@@ -17,44 +17,10 @@ Gem::Specification.new do |s|
   s.test_files = Dir['spec/**/*']
   s.bindir = "exe"
   s.executables = s.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  s.require_paths = ["lib"]
   s.homepage = "http://vinsol.com"
   s.licenses = ["MIT"]
   s.summary = "Add loyalty points to spree"
 
-  # if s.respond_to? :specification_version then
-  #   s.specification_version = 4
-  # end
-
-  # if s.respond_to? :add_runtime_dependency then
-  #   s.add_runtime_dependency(%q<solidus>, [">= 0"])
-  #   s.add_development_dependency(%q<capybara>, ["~> 2.5"])
-  #   s.add_development_dependency(%q<coffee-rails>, ["~> 4.2.1"])
-  #   s.add_development_dependency(%q<database_cleaner>, ["~> 1.5.3"])
-  #   s.add_development_dependency(%q<factory_girl>, ["~> 4.5"])
-  #   s.add_development_dependency(%q<ffaker>, ["~> 2.2.0"])
-  #   s.add_development_dependency(%q<rspec-rails>, ["~> 3.4"])
-  #   s.add_development_dependency(%q<rspec-activemodel-mocks>, [">= 0"])
-  #   s.add_development_dependency(%q<shoulda-matchers>, ["~> 3.1.1"])
-  #   s.add_development_dependency(%q<sass-rails>, ["~> 5.0.0"])
-  #   s.add_development_dependency(%q<selenium-webdriver>, ["~> 3.0.8"])
-  #   s.add_development_dependency(%q<simplecov>, ["~> 0.13.0"])
-  #   s.add_development_dependency(%q<sqlite3>, ["~> 1.3.13"])
-  # else
-  #   s.add_dependency(%q<solidus>, [">= 0"])
-  #   s.add_dependency(%q<capybara>, ["~> 2.5"])
-  #   s.add_dependency(%q<coffee-rails>, ["~> 4.2.1"])
-  #   s.add_dependency(%q<database_cleaner>, ["~> 1.5.3"])
-  #   s.add_dependency(%q<factory_girl>, ["~> 4.5"])
-  #   s.add_dependency(%q<ffaker>, ["~> 2.2.0"])
-  #   s.add_dependency(%q<rspec-rails>, ["~> 3.4"])
-  #   s.add_dependency(%q<rspec-activemodel-mocks>, [">= 0"])
-  #   s.add_dependency(%q<shoulda-matchers>, ["~> 3.1.1"])
-  #   s.add_dependency(%q<sass-rails>, ["~> 5.0.0"])
-  #   s.add_dependency(%q<selenium-webdriver>, ["~> 3.0.8"])
-  #   s.add_dependency(%q<simplecov>, ["~> 0.13.0"])
-  #   s.add_dependency(%q<sqlite3>, ["~> 1.3.13"])
-  # end
   solidus_version = [">= 1.0", "< 3"]
 
   s.add_dependency 'deface', '~> 1.0'
