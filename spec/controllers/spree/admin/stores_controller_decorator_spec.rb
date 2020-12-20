@@ -1,7 +1,8 @@
 require 'spec_helper'
 
-describe Spree::Admin::GeneralSettingsController, type: :controller do
+describe Spree::Admin::StoresController, type: :controller do
   let(:user) { mock_model(Spree.user_class).as_null_object }
+  let(:store) { create(:store) }
 
   before do
     allow(controller).to receive(:spree_current_user).and_return(user)
@@ -12,13 +13,13 @@ describe Spree::Admin::GeneralSettingsController, type: :controller do
 
   describe "set_loyalty_points_settings callback" do
     it "is included in before action callbacks" do
-      expect(Spree::Admin::GeneralSettingsController._process_action_callbacks.select{ |callback| callback.kind == :before }.map(&:filter)).to include(:set_loyalty_points_settings)
+      expect(Spree::Admin::StoresController._process_action_callbacks.select{ |callback| callback.kind == :before }.map(&:filter)).to include(:set_loyalty_points_settings)
     end
   end
 
   describe "GET 'edit'" do
     def send_request
-      get :edit
+      get :edit, params: { id: store.id }
     end
 
     before do

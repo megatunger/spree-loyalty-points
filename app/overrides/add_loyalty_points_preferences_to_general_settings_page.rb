@@ -1,6 +1,7 @@
-Deface::Override.new(virtual_path: 'spree/admin/general_settings/edit',
+Deface::Override.new(
+  virtual_path: 'spree/admin/stores/edit',
   name: 'add_loyalty_points_preferences_to_general_settings_page',
-  insert_before: "div.form-actions",
+  insert_before: "div.form-buttons",
   text: "
     <div class='row'>
       <fieldset class='loyalty-points no-border-bottom'>
@@ -15,4 +16,5 @@ Deface::Override.new(virtual_path: 'spree/admin/general_settings/edit',
         <% end %>
       </fieldset>
     </div>
-  ")
+  "
+)

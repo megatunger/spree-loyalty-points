@@ -113,7 +113,7 @@ describe Spree::Admin::LoyaltyPointsTransactionsController, type: :controller do
   context "when user not found" do
     before do
       allow(Spree.user_class).to receive(:find_by).and_return(nil)
-      allow(controller).to receive(:parent).and_raise(ActiveRecord::RecordNotFound)
+      allow(controller).to receive(:parent).and_raise(ActiveRecord::RecordNotFound.new(nil, Spree::user_class.to_s))
     end
 
     it "redirects to user's loyalty points page" do
@@ -227,7 +227,7 @@ describe Spree::Admin::LoyaltyPointsTransactionsController, type: :controller do
       end
 
       it "is http success" do
-        expect(response).to be_success
+        expect(response.status).to eq 200
       end
     end
 

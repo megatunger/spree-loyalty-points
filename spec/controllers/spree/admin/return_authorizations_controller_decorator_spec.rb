@@ -3,9 +3,9 @@
 require 'spec_helper'
 
 describe Spree::Admin::ReturnAuthorizationsController, type: :controller do
-  let(:order) { mock_model(Spree::Order).as_null_object }
-  let(:return_authorization) { mock_model(Spree::ReturnAuthorization).as_null_object }
+  let(:return_authorization) { create(:return_authorization) }
   let(:user) { return_authorization.order.user }
+  let(:order) { return_authorization.order }
 
   before do
     allow(controller).to receive(:load_resource_instance).and_return(return_authorization)
@@ -48,8 +48,8 @@ describe Spree::Admin::ReturnAuthorizationsController, type: :controller do
     context 'with correct method flow' do
       after { send_request }
 
-      it "user should receive loyalty_points_transactions" do
-        expect(user).to receive(:loyalty_points_transactions)
+      it "order should receive loyalty_points_transactions" do
+        expect(order).to receive(:loyalty_points_transactions)
       end
     end
 

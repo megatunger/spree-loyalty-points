@@ -3,7 +3,7 @@
 module SpreeLoyaltyPoints
   module Spree
     module Admin
-      module GeneralSettingsControllerDecorator
+      module StoresControllerDecorator
         def self.prepended(base)
           base.before_action :set_loyalty_points_settings, only: [:edit]
         end
@@ -20,7 +20,7 @@ module SpreeLoyaltyPoints
           }
         end
 
-        ::Spree::Admin::GeneralSettingsController.prepend self
+        ::Spree::Admin::StoresController.prepend self
       end
     end
   end

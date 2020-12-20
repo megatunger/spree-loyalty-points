@@ -1,4 +1,5 @@
-Deface::Override.new(virtual_path: 'spree/admin/return_authorizations/_form',
+Deface::Override.new(
+  virtual_path: 'spree/admin/return_authorizations/_form',
   name: 'add_loyalty_points_to_return_authorization_page',
   insert_before: "erb[loud]:contains('field_container :reason')",
   text: "
@@ -25,4 +26,5 @@ Deface::Override.new(virtual_path: 'spree/admin/return_authorizations/_form',
       <% end %>
     <% end %>
   <% end %>
-  ")
+  "
+)
