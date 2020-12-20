@@ -18,5 +18,9 @@ module SpreeLoyaltyPoints
     initializer "spree.register.payment_methods" do |app|
       app.config.spree.payment_methods << Spree::PaymentMethod::LoyaltyPoints
     end
+
+    initializer "spree.loyalty_points_settings", before: :load_config_initializers do
+      SpreeLoyaltyPoints::Config = Spree::LoyaltyPointsSettings.new
+    end
   end
 end

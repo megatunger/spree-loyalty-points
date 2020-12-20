@@ -76,8 +76,8 @@ describe Spree::Admin::ReturnAuthorizationsController, type: :controller do
     end
 
     context "when per_page is not passed as a parameter" do
-      it "receives per with Spree::Config[:admin_orders_per_page] on loyalty_points_transactions" do
-        expect(loyalty_points_transactions).to receive(:per).with(Spree::Config[:admin_orders_per_page])
+      it "receives per with SpreeLoyaltyPoints::Config[:admin_orders_per_page] on loyalty_points_transactions" do
+        expect(loyalty_points_transactions).to receive(:per).with(SpreeLoyaltyPoints::Config[:admin_orders_per_page])
         send_request
       end
     end

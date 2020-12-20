@@ -34,7 +34,7 @@ shared_examples_for "Order::LoyaltyPoints" do
   describe 'create_credit_transaction' do
 
     context "when quantity is not 0" do
-      
+
       it "should add a Loyalty Points Credit Transaction" do
         expect {
           resource_instance.send(:create_credit_transaction, 30)
@@ -54,7 +54,7 @@ shared_examples_for "Order::LoyaltyPoints" do
     end
 
     context "when quantity is 0" do
-      
+
       it "should not add a Loyalty Points Credit Transaction" do
         expect {
           resource_instance.send(:create_credit_transaction, 0)
@@ -68,7 +68,7 @@ shared_examples_for "Order::LoyaltyPoints" do
   describe 'create_debit_transaction' do
 
     context "when quantity is not 0" do
-      
+
       it "should add a Loyalty Points Debit Transaction" do
         expect {
           resource_instance.send(:create_debit_transaction, 30)
@@ -88,7 +88,7 @@ shared_examples_for "Order::LoyaltyPoints" do
     end
 
     context "when quantity is 0" do
-      
+
       it "should not add a Loyalty Points Debit Transaction" do
         expect {
           resource_instance.send(:create_debit_transaction, 0)
@@ -137,7 +137,7 @@ shared_examples_for "Order::LoyaltyPoints" do
   describe 'credit_loyalty_points_to_user' do
 
     before :each do
-      allow(Spree::Config).to receive(:loyalty_points_award_period).and_return(1)
+      allow(SpreeLoyaltyPoints::Config).to receive(:loyalty_points_award_period).and_return(1)
       allow(Spree::Order).to receive(:with_uncredited_loyalty_points).and_return([resource_instance])
     end
 

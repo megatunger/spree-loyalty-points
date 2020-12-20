@@ -6,10 +6,10 @@ Deface::Override.new(virtual_path: 'spree/admin/general_settings/edit',
       <fieldset class='loyalty-points no-border-bottom'>
         <legend align='center'><%= I18n.t('spree.loyalty_points_settings')%></legend>
         <% @preferences_loyalty_points.each do |key, value|
-            type = Spree::Config.preference_type(key) %>
+            type = SpreeLoyaltyPoints::Config.preference_type(key) %>
             <div class='field'>
               <%= label_tag(key, I18n.t('spree.' + key)) + tag(:br) if type != :boolean %>
-              <%= preference_field_tag(key, Spree::Config[key], type: type) %>
+              <%= preference_field_tag(key, SpreeLoyaltyPoints::Config[key], type: type) %>
               <p><%= value[0] %></p>
             </div>
         <% end %>

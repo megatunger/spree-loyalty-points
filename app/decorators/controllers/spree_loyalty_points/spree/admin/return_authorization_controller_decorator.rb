@@ -13,7 +13,7 @@ module SpreeLoyaltyPoints
         def set_loyalty_points_transactions
           @loyalty_points_transactions = @return_authorization.order.loyalty_points_transactions.
                                          page(params[:page]).
-                                         per(params[:per_page] || Spree::Config[:admin_orders_per_page])
+                                         per(params[:per_page] || SpreeLoyaltyPoints::Config[:admin_orders_per_page])
         end
 
         ::Spree::Admin::ReturnAuthorizationsController.prepend self

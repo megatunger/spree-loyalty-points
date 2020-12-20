@@ -29,7 +29,7 @@ module Spree
 
       module ClassMethods
         def credit_loyalty_points_to_user
-          points_award_period = Spree::Config.loyalty_points_award_period
+          points_award_period = SpreeLoyaltyPoints::Config.loyalty_points_award_period
           uncredited_orders = Spree::Order.with_uncredited_loyalty_points(points_award_period)
           uncredited_orders.each do |order|
             order.award_loyalty_points

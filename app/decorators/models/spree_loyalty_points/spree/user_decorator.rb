@@ -14,7 +14,7 @@ module SpreeLoyaltyPoints
       end
 
       def loyalty_points_balance_sufficient?
-        loyalty_points_balance >= ::Spree::Config.loyalty_points_redeeming_balance
+        loyalty_points_balance >= ::SpreeLoyaltyPoints::Config.loyalty_points_redeeming_balance
       end
 
       def has_sufficient_loyalty_points?(order)
@@ -22,7 +22,7 @@ module SpreeLoyaltyPoints
       end
 
       def loyalty_points_equivalent_currency
-        loyalty_points_balance * ::Spree::Config.loyalty_points_conversion_rate
+        loyalty_points_balance * ::SpreeLoyaltyPoints::Config.loyalty_points_conversion_rate
       end
 
       ::Spree.user_class.prepend self

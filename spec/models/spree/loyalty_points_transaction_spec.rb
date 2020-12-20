@@ -6,7 +6,15 @@ describe Spree::LoyaltyPointsTransaction, type: :model do
   let!(:loyalty_points_transaction) { build(:loyalty_points_debit_transaction) }
 
   describe 'validations' do
-    subject { Spree::LoyaltyPointsDebitTransaction.new }
+    subject do
+      Spree::LoyaltyPointsDebitTransaction.new(
+        user: user,
+        source: order
+      )
+    end
+
+    let(:user) { create(:user_with_loyalty_points) }
+    let(:order) { create(:order) }
 
     it "is valid with valid attributes" do
       expect(loyalty_points_transaction).to be_valid
@@ -65,8 +73,10 @@ describe Spree::LoyaltyPointsTransaction, type: :model do
   end
 
   context "when comment is present" do
+    let(:order) { create(:order) }
+
     before do
-      loyalty_points_transaction.source = nil
+      loyalty_points_transaction.source = order
       loyalty_points_transaction.comment = 'Random Comment'
       loyalty_points_transaction.save
     end

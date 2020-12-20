@@ -34,12 +34,12 @@ module Spree
       end
 
       def redeemable_loyalty_points_balance?
-        order.user.loyalty_points_balance >= Spree::Config.loyalty_points_redeeming_balance
+        order.user.loyalty_points_balance >= SpreeLoyaltyPoints::Config.loyalty_points_redeeming_balance
       end
 
       def redeemable_user_balance
         unless redeemable_loyalty_points_balance?
-          min_balance = Spree::Config.loyalty_points_redeeming_balance
+          min_balance = SpreeLoyaltyPoints::Config.loyalty_points_redeeming_balance
           errors.add :loyalty_points_balance, "should be atleast #{min_balance.to_s + ' ' + 'point'.pluralize(min_balance)} for redeeming Loyalty Points"
         end
       end
