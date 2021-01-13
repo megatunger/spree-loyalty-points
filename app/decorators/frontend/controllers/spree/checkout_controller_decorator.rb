@@ -19,6 +19,6 @@ module Spree
       end
     end
 
-    ::Spree::CheckoutController.prepend self
+    ::Spree::CheckoutController.prepend self if defined?(::Spree::CheckoutController)
   end
 end
