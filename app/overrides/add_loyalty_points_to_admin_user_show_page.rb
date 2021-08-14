@@ -6,9 +6,9 @@ Deface::Override.new(virtual_path: 'spree/admin/users/edit',
       <div class=panel-heading><%= I18n.t('spree.loyalty_points_balance') %></div>
       <div class=panel-body>
         <% if @user.loyalty_points_balance.present? %>
-          <%= link_to number_to_currency(@user.loyalty_points_balance, separator: ',', delimiter: '.'), spree.admin_user_loyalty_points_path(@user) %>
+          <%= link_to @user.loyalty_points_balance, spree.admin_user_loyalty_points_path(@user) %>
         <% else %>
-          <%= I18n.t('spree.no_loyalty_points') %>
+          <%= 'No loyalty points yet' %>
         <% end %
       </div>
     </div>
