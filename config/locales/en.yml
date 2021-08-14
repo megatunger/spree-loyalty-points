@@ -17,6 +17,7 @@ en:
     update_loyalty_points: Update Loyalty Points
     loyalty_points_earnable: "%{quantity} Loyalty Points Will Be Awarded for this Order"
     insufficient_loyalty_points: 'You have insufficient Loyalty Points'
+    no_loyalty_points: 'No loyalty points yet'
     transaction_type: Transaction Type
     comment: Comment
     source_reference: Source Reference
