@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
     s.metadata["source_code_uri"] = s.homepage if s.homepage
   end
 
-  solidus_version = [">= 1.0", "< 3"]
+  solidus_version = [">= 1.0", "< 4"]
 
   s.add_dependency 'deface', '~> 1.0'
   s.add_dependency 'rabl', '~> 0.14.3'
